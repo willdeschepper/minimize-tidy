@@ -1,12 +1,13 @@
 # Minimize Tidy
 
-A small GNOME Shell extension for people who use the Activities Overview without a permanent dock. Minimized windows leave the Overview but remain open and accessible.
+A small GNOME Shell extension for people who use the Activities Overview without a permanent dock. Minimized windows leave the Overview but remain open and accessible from a menu in the top bar.
 
 | Where | Minimized windows |
 | --- | --- |
 | Activities Overview (`F3` on some setups) | Hidden |
 | Alt+Tab | Available |
 | Application icon's open windows menu | Available |
+| Top bar menu | Listed by window title; click to restore |
 
 This first version targets **GNOME Shell 50**. It does not create a tray icon or change the minimize action. It works by wrapping GNOME Shell's internal `Workspace.prototype._isOverviewWindow` method; future GNOME releases may require adjustments.
 
@@ -17,7 +18,7 @@ Disable **Hide minimized** by danigm first if it is installed. The two extension
 ```bash
 git clone https://github.com/willdeschepper/minimize-tidy.git
 cd minimize-tidy
-gnome-extensions pack --force
+gnome-extensions pack --force --extra-source=LICENSE
 gnome-extensions install --force minimize-tidy@willdeschepper.github.io.shell-extension.zip
 ```
 
@@ -27,7 +28,7 @@ On **Wayland**, log out and log back in so GNOME Shell discovers a newly install
 gnome-extensions enable minimize-tidy@willdeschepper.github.io
 ```
 
-Alternatively, use the **Extensions** app to enable it after logging back in. Test by minimizing one window and opening the Overview; that window should be absent there but still available through Alt+Tab and its application icon's open windows menu.
+Alternatively, use the **Extensions** app to enable it after logging back in. Test by minimizing one window and opening the Overview; that window should be absent there but still available through Alt+Tab and the menu in the top bar. Open the menu to see the current list of minimized windows, then select one to restore it. The menu includes windows from all workspaces.
 
 To remove it:
 
@@ -38,7 +39,7 @@ gnome-extensions uninstall minimize-tidy@willdeschepper.github.io
 
 ## Development
 
-The extension is intentionally small: `extension.js` changes only the Overview window predicate and restores it when disabled. For quick static checks:
+The extension changes only the Overview window predicate, restores it when disabled, and creates a top bar menu which is rebuilt whenever it opens. For quick static checks:
 
 ```bash
 node --check extension.js
