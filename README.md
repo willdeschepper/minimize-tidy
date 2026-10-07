@@ -18,13 +18,13 @@ Disable **Hide minimized** by danigm first if it is installed. The two extension
 git clone https://github.com/willdeschepper/minimize-tidy.git
 cd minimize-tidy
 gnome-extensions pack --force
-gnome-extensions install --force minimize-tidy@willdeschepper.github.com.shell-extension.zip
+gnome-extensions install --force minimize-tidy@willdeschepper.github.io.shell-extension.zip
 ```
 
 On **Wayland**, log out and log back in so GNOME Shell discovers a newly installed extension. Then enable it:
 
 ```bash
-gnome-extensions enable minimize-tidy@willdeschepper.github.com
+gnome-extensions enable minimize-tidy@willdeschepper.github.io
 ```
 
 Alternatively, use the **Extensions** app to enable it after logging back in. Test by minimizing one window and opening the Overview; that window should be absent there but still available through Alt+Tab and its application icon's open windows menu.
@@ -32,8 +32,8 @@ Alternatively, use the **Extensions** app to enable it after logging back in. Te
 To remove it:
 
 ```bash
-gnome-extensions disable minimize-tidy@willdeschepper.github.com
-gnome-extensions uninstall minimize-tidy@willdeschepper.github.com
+gnome-extensions disable minimize-tidy@willdeschepper.github.io
+gnome-extensions uninstall minimize-tidy@willdeschepper.github.io
 ```
 
 ## Development

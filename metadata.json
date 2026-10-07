@@ -1,7 +1,7 @@
 {
   "name": "Minimize Tidy",
   "description": "Hide minimized windows from the Activities Overview, while keeping them in Alt+Tab and application menus.",
-  "uuid": "minimize-tidy@willdeschepper.github.com",
+  "uuid": "minimize-tidy@willdeschepper.github.io",
   "url": "https://github.com/willdeschepper/minimize-tidy",
   "shell-version": ["50"]
 }
