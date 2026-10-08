@@ -39,18 +39,10 @@ export default class MinimizeTidy extends Extension {
         Workspace.prototype._isOverviewWindow = this._isOverviewWindow;
 
         this._indicator = new PanelMenu.Button(0.0, _('Minimized windows'), false);
-        const indicatorContent = new St.BoxLayout({
-            style_class: 'panel-status-menu-box',
-        });
-        indicatorContent.add_child(new St.Icon({
+        this._indicator.add_child(new St.Icon({
             icon_name: 'view-list-symbolic',
             style_class: 'system-status-icon',
         }));
-        indicatorContent.add_child(new St.Label({
-            text: _('Minimized'),
-            y_align: Clutter.ActorAlign.CENTER,
-        }));
-        this._indicator.add_child(indicatorContent);
 
         this._menuOpenId = this._indicator.menu.connect('open-state-changed', (_menu, open) => {
             if (open)

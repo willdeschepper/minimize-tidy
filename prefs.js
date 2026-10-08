@@ -5,21 +5,6 @@ import Gtk from 'gi://Gtk';
 
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
-const EFFECTS = [
-    ['scale', _('Shrink to a point')],
-    ['fade', _('Fade out')],
-    ['flip', _('Flip away')],
-    ['instant', _('Disappear instantly')],
-];
-
-const DIRECTIONS = [
-    ['top-left', _('Top left')],
-    ['top-right', _('Top right')],
-    ['bottom-left', _('Bottom left')],
-    ['bottom-right', _('Bottom right')],
-    ['center', _('Center')],
-];
-
 function addChoice(group, settings, key, title, subtitle, choices) {
     const row = new Adw.ComboRow({
         title,
@@ -42,6 +27,20 @@ export default class MinimizeTidyPreferences extends ExtensionPreferences {
         const settings = this.getSettings();
         window._settings = settings;
 
+        const effects = [
+            ['scale', _('Shrink to a point')],
+            ['fade', _('Fade out')],
+            ['flip', _('Flip away')],
+            ['instant', _('Disappear instantly')],
+        ];
+        const directions = [
+            ['top-left', _('Top left')],
+            ['top-right', _('Top right')],
+            ['bottom-left', _('Bottom left')],
+            ['bottom-right', _('Bottom right')],
+            ['center', _('Center')],
+        ];
+
         const page = new Adw.PreferencesPage({
             title: _('Animations'),
             icon_name: 'preferences-system-symbolic',
@@ -55,12 +54,12 @@ export default class MinimizeTidyPreferences extends ExtensionPreferences {
         page.add(group);
 
         const effect = addChoice(group, settings, 'animation-effect',
-            _('Effect'), _('Applied when minimizing and restoring a window'), EFFECTS);
+            _('Effect'), _('Applied when minimizing and restoring a window'), effects);
         const direction = addChoice(group, settings, 'animation-direction',
-            _('Destination'), _('Where the window shrinks to'), DIRECTIONS);
+            _('Destination'), _('Where the window shrinks to'), directions);
 
         const updateDirection = () => {
-            direction.sensitive = EFFECTS[effect.selected]?.[0] === 'scale';
+            direction.sensitive = effects[effect.selected]?.[0] === 'scale';
         };
         effect.connect('notify::selected', updateDirection);
         updateDirection();
