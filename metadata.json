@@ -8,5 +8,5 @@
   "url": "https://github.com/willdeschepper/minimize-tidy",
   "settings-schema": "org.gnome.shell.extensions.minimize-tidy",
   "gettext-domain": "minimize-tidy@willdeschepper.github.io",
-  "version-name": "1.1"
+  "version-name": "1.2"
 }
