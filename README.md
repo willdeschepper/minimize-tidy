@@ -7,7 +7,7 @@ A small GNOME Shell extension for people who use the Activities Overview without
 | Activities Overview (`F3` on some setups) | Hidden |
 | Alt+Tab | Available |
 | Application icon's open windows menu | Available |
-| Top bar menu | Listed by window title; click to restore |
+| Top bar menu (`Minimized` with a list icon) | Listed by window title; click to restore |
 
 This first version targets **GNOME Shell 50**. It does not create a tray icon or change the minimize action. It works by wrapping GNOME Shell's internal `Workspace.prototype._isOverviewWindow` method; future GNOME releases may require adjustments.
 
