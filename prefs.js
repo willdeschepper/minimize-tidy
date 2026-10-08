@@ -24,7 +24,7 @@ function addChoice(group, settings, key, title, subtitle, choices) {
 
 export default class MinimizeTidyPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
-        const settings = this.getSettings();
+        const settings = this.getSettings('org.gnome.shell.extensions.minimize-tidy');
         window._settings = settings;
 
         const effects = [

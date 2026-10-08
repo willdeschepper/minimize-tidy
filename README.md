@@ -21,6 +21,20 @@ gnome-extensions prefs minimize-tidy@willdeschepper.github.io
 
 Choose **Shrink to a point**, **Fade out**, **Flip away**, or **Disappear instantly**. For the shrink effect, choose top left, top right, bottom left, bottom right, or center of the window's monitor. Changes apply on the next minimize or restore without restarting GNOME Shell. The restore animation reverses the selected effect. The direction setting is only used for the shrink effect.
 
+### Preferences after updating an older installation
+
+If the installed directory contains `prefs.js` but `gnome-extensions prefs` says the extension has no preferences, the running Shell may still have the older extension metadata. Close any open extension preferences or error dialog and open the preferences service directly:
+
+```bash
+gdbus call --session \
+  --dest org.gnome.Shell.Extensions \
+  --object-path /org/gnome/Shell/Extensions \
+  --method org.gnome.Shell.Extensions.OpenExtensionPrefs \
+  minimize-tidy@willdeschepper.github.io '' '{}'
+```
+
+This opens preferences using the installed files. Updated Shell code, including panel changes and new animation handlers, still requires restarting the devkit session or logging out and back in on the desktop.
+
 ## Install locally
 
 Disable **Hide minimized** by danigm first if it is installed. The two extensions change the same internal Overview method and should not run together.
