@@ -375,9 +375,10 @@ export default class MinimizeTidy extends Extension {
         if (this._menuOpenId)
             this._indicator.menu.disconnect(this._menuOpenId);
         this._menuOpenId = 0;
+        this._count?.destroy();
+        this._count = null;
         this._indicator?.destroy();
         this._indicator = null;
-        this._count = null;
 
         this._unpatchOverview();
         this._shellwm = null;
