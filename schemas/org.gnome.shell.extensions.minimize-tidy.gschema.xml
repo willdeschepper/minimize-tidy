@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.minimize-tidy" path="/org/gnome/shell/extensions/minimize-tidy/">
+    <key name="animation-effect" type="s">
+      <choices>
+        <choice value="scale"/>
+        <choice value="fade"/>
+        <choice value="flip"/>
+        <choice value="instant"/>
+      </choices>
+      <default>'scale'</default>
+      <summary>Window minimize and restore effect</summary>
+    </key>
+    <key name="animation-direction" type="s">
+      <choices>
+        <choice value="top-left"/>
+        <choice value="top-right"/>
+        <choice value="bottom-left"/>
+        <choice value="bottom-right"/>
+        <choice value="center"/>
+      </choices>
+      <default>'top-left'</default>
+      <summary>Destination of the scale animation</summary>
+    </key>
+  </schema>
+</schemalist>

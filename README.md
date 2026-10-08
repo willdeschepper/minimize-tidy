@@ -1,6 +1,6 @@
 # Minimize Tidy
 
-A small GNOME Shell extension for people who use the Activities Overview without a permanent dock. Minimized windows leave the Overview but remain open and accessible from a menu in the top bar.
+A small GNOME Shell extension for people who use the Activities Overview without a permanent dock. Minimized windows leave the Overview but remain open and accessible from a menu in the top bar. Minimize and restore animations can be configured.
 
 | Where | Minimized windows |
 | --- | --- |
@@ -9,7 +9,17 @@ A small GNOME Shell extension for people who use the Activities Overview without
 | Application icon's open windows menu | Available |
 | Top bar menu (`Minimized` with a list icon) | Listed by window title; click to restore |
 
-This first version targets **GNOME Shell 50**. It does not create a tray icon or change the minimize action. It works by wrapping GNOME Shell's internal `Workspace.prototype._isOverviewWindow` method; future GNOME releases may require adjustments.
+This version targets **GNOME Shell 50**. It does not create a tray icon or change the minimize action. It wraps GNOME Shell's internal `Workspace.prototype._isOverviewWindow` method and replaces the Shell's minimize/unminimize animation signal handlers while enabled; future GNOME releases may require adjustments.
+
+## Animation preferences
+
+Open **Animation settings** from the top bar menu, or run:
+
+```bash
+gnome-extensions prefs minimize-tidy@willdeschepper.github.io
+```
+
+Choose **Shrink to a point**, **Fade out**, **Flip away**, or **Disappear instantly**. For the shrink effect, choose top left, top right, bottom left, bottom right, or center of the window's monitor. Changes apply on the next minimize or restore without restarting GNOME Shell. The restore animation reverses the selected effect. The direction setting is only used for the shrink effect.
 
 ## Install locally
 
@@ -43,10 +53,12 @@ The extension changes only the Overview window predicate, restores it when disab
 
 ```bash
 node --check extension.js
+node --check prefs.js
 python3 -m json.tool metadata.json > /dev/null
+glib-compile-schemas --strict --dry-run schemas
 ```
 
-It needs an interactive GNOME Shell 50 session to confirm runtime behavior. Please report the GNOME version and any other extensions that modify the Overview when filing an issue.
+It needs an interactive GNOME Shell 50 session to confirm runtime behavior. Test all effects by minimizing and restoring an ordinary window, then disable the extension to check that GNOME's normal animation returns. Please report the GNOME version and any other extensions that modify the Overview or minimize animation when filing an issue.
 
 ## Credits and license
 
