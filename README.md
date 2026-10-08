@@ -9,6 +9,20 @@ A GNOME Shell extension that keeps the Activities Overview tidy: minimized windo
 
 Supports GNOME 50. Available in English and Brazilian Portuguese (follows the system language).
 
+## Preview
+
+Top bar menu with minimized windows, count badge and **Restore all**:
+
+![Top bar menu listing minimized windows](assets/minimize-tidy-02.png)
+
+Menu when nothing is minimized:
+
+![Top bar menu with no minimized windows](assets/minimize-tidy-01.png)
+
+Preferences window:
+
+![Preferences window](assets/minimize-tidy-configs.png)
+
 ## Development
 
 ```bash
