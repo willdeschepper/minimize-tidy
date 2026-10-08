@@ -1,26 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
   <schema id="org.gnome.shell.extensions.minimize-tidy" path="/org/gnome/shell/extensions/minimize-tidy/">
+    <key name="hide-in-overview" type="b">
+      <default>true</default>
+      <summary>Hide minimized windows in the Activities Overview</summary>
+    </key>
+    <key name="indicator-mode" type="s">
+      <choices>
+        <choice value="always"/>
+        <choice value="when-needed"/>
+      </choices>
+      <default>'always'</default>
+      <summary>When to show the top bar button</summary>
+    </key>
+    <key name="show-count" type="b">
+      <default>true</default>
+      <summary>Show the number of minimized windows next to the icon</summary>
+    </key>
     <key name="animation-effect" type="s">
       <choices>
         <choice value="scale"/>
         <choice value="fade"/>
         <choice value="flip"/>
         <choice value="instant"/>
+        <choice value="system"/>
       </choices>
       <default>'scale'</default>
       <summary>Window minimize and restore effect</summary>
     </key>
     <key name="animation-direction" type="s">
       <choices>
+        <choice value="icon"/>
         <choice value="top-left"/>
+        <choice value="top-center"/>
         <choice value="top-right"/>
         <choice value="bottom-left"/>
+        <choice value="bottom-center"/>
         <choice value="bottom-right"/>
         <choice value="center"/>
       </choices>
-      <default>'top-left'</default>
-      <summary>Destination of the scale animation</summary>
+      <default>'icon'</default>
+      <summary>Destination of the shrink animation</summary>
+    </key>
+    <key name="animation-duration" type="i">
+      <range min="100" max="1000"/>
+      <default>250</default>
+      <summary>Animation duration in milliseconds</summary>
     </key>
   </schema>
 </schemalist>

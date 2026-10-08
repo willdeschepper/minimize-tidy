@@ -1,0 +1,105 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: minimize-tidy\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Minimized windows"
+msgstr "Janelas minimizadas"
+
+msgid "No minimized windows"
+msgstr "Nenhuma janela minimizada"
+
+msgid "Window"
+msgstr "Janela"
+
+msgid "Restore all"
+msgstr "Restaurar todas"
+
+msgid "Settings"
+msgstr "Configurações"
+
+msgid "Behavior"
+msgstr "Comportamento"
+
+msgid "Hide minimized windows in the Overview"
+msgstr "Esconder janelas minimizadas na visão geral"
+
+msgid "Alt+Tab and the dock are not affected"
+msgstr "O Alt+Tab e a dock continuam iguais"
+
+msgid "Top bar button"
+msgstr "Botão na barra superior"
+
+msgid "Lists minimized windows so you can restore them."
+msgstr "Lista as janelas minimizadas para você restaurá-las."
+
+msgid "Show button"
+msgstr "Mostrar botão"
+
+msgid "Always"
+msgstr "Sempre"
+
+msgid "Only when a window is minimized"
+msgstr "Só quando houver janela minimizada"
+
+msgid "Show number of minimized windows"
+msgstr "Mostrar quantidade de janelas minimizadas"
+
+msgid "Animation"
+msgstr "Animação"
+
+msgid "How windows minimize and come back."
+msgstr "Como as janelas minimizam e voltam."
+
+msgid "Effect"
+msgstr "Efeito"
+
+msgid "Shrink"
+msgstr "Encolher"
+
+msgid "Fade"
+msgstr "Desvanecer"
+
+msgid "Flip"
+msgstr "Girar"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "GNOME default"
+msgstr "Padrão do GNOME"
+
+msgid "Shrink toward"
+msgstr "Encolher em direção a"
+
+msgid "App icon in the dock"
+msgstr "Ícone do app na dock"
+
+msgid "Top left corner"
+msgstr "Canto superior esquerdo"
+
+msgid "Top right corner"
+msgstr "Canto superior direito"
+
+msgid "Bottom left corner"
+msgstr "Canto inferior esquerdo"
+
+msgid "Bottom right corner"
+msgstr "Canto inferior direito"
+
+msgid "Center of the screen"
+msgstr "Centro da tela"
+
+msgid "Duration (ms)"
+msgstr "Duração (ms)"
+
+msgid "Top center"
+msgstr "Centro superior"
+
+msgid "Bottom center"
+msgstr "Centro inferior"

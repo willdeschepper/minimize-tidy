@@ -1,0 +1,17 @@
+/* Contador ao lado do ícone na barra */
+.minimize-tidy-count {
+  font-size: 0.85em;
+  font-weight: bold;
+  min-width: 1.2em;
+  padding: 0 0.35em;
+  margin-left: 2px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.15);
+  text-align: center;
+}
+
+/* Nome do app à direita do título no menu */
+.minimize-tidy-app {
+  font-size: 0.9em;
+  padding-left: 12px;
+}

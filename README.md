@@ -1,79 +1,28 @@
 # Minimize Tidy
 
-A small GNOME Shell extension for people who use the Activities Overview without a permanent dock. Minimized windows leave the Overview but remain open and accessible from a menu in the top bar. Minimize and restore animations can be configured.
+A GNOME Shell extension that keeps the Activities Overview tidy: minimized windows stay out of it, and a top bar menu lists them so you can bring them back in one click. Alt+Tab and the dock keep working as usual.
 
-| Where | Minimized windows |
-| --- | --- |
-| Activities Overview (`F3` on some setups) | Hidden |
-| Alt+Tab | Available |
-| Application icon's open windows menu | Available |
-| Top bar menu (list icon) | Listed by window title; click to restore |
+- Hides minimized windows from the Overview (can be turned off)
+- Top bar menu with app icons, window titles and **Restore all**
+- Optional count badge, and an option to show the button only when something is minimized
+- Minimize animations: shrink into the app's dock icon or a screen corner, fade, flip, none, or the GNOME default, with adjustable duration
 
-This version targets **GNOME Shell 50**. It does not create a tray icon or change the minimize action. It wraps GNOME Shell's internal `Workspace.prototype._isOverviewWindow` method and replaces the Shell's minimize/unminimize animation signal handlers while enabled; future GNOME releases may require adjustments.
-
-## Animation preferences
-
-Open **Animation settings** from the top bar menu, or run:
-
-```bash
-gnome-extensions prefs minimize-tidy@willdeschepper.github.io
-```
-
-Choose **Shrink to a point**, **Fade out**, **Flip away**, or **Disappear instantly**. For the shrink effect, choose top left, top right, bottom left, bottom right, or center of the window's monitor. Changes apply on the next minimize or restore without restarting GNOME Shell. The restore animation reverses the selected effect. The direction setting is only used for the shrink effect.
-
-### Preferences after updating an older installation
-
-If the installed directory contains `prefs.js` but `gnome-extensions prefs` says the extension has no preferences, the running Shell may still have the older extension metadata. Close any open extension preferences or error dialog and open the preferences service directly:
-
-```bash
-gdbus call --session \
-  --dest org.gnome.Shell.Extensions \
-  --object-path /org/gnome/Shell/Extensions \
-  --method org.gnome.Shell.Extensions.OpenExtensionPrefs \
-  minimize-tidy@willdeschepper.github.io '' '{}'
-```
-
-This opens preferences using the installed files. Updated Shell code, including panel changes and new animation handlers, still requires restarting the devkit session or logging out and back in on the desktop.
-
-## Install locally
-
-Disable **Hide minimized** by danigm first if it is installed. The two extensions change the same internal Overview method and should not run together.
-
-```bash
-git clone https://github.com/willdeschepper/minimize-tidy.git
-cd minimize-tidy
-gnome-extensions pack --force --extra-source=LICENSE
-gnome-extensions install --force minimize-tidy@willdeschepper.github.io.shell-extension.zip
-```
-
-On **Wayland**, log out and log back in so GNOME Shell discovers a newly installed extension. Then enable it:
-
-```bash
-gnome-extensions enable minimize-tidy@willdeschepper.github.io
-```
-
-Alternatively, use the **Extensions** app to enable it after logging back in. Test by minimizing one window and opening the Overview; that window should be absent there but still available through Alt+Tab and the menu in the top bar. Open the menu to see the current list of minimized windows, then select one to restore it. The menu includes windows from all workspaces.
-
-To remove it:
-
-```bash
-gnome-extensions disable minimize-tidy@willdeschepper.github.io
-gnome-extensions uninstall minimize-tidy@willdeschepper.github.io
-```
+Supports GNOME 50. Available in English and Brazilian Portuguese (follows the system language).
 
 ## Development
 
-The extension changes only the Overview window predicate, restores it when disabled, and creates a top bar menu which is rebuilt whenever it opens. For quick static checks:
-
 ```bash
-node --check extension.js
-node --check prefs.js
-python3 -m json.tool metadata.json > /dev/null
-glib-compile-schemas --strict --dry-run schemas
+./dev.sh      # installs and opens a nested GNOME Shell that restarts on every save (needs entr)
+./install.sh  # installs into ~/.local/share/gnome-shell/extensions
+./build.sh    # builds the zip for extensions.gnome.org (needs gnome-extensions)
 ```
 
-It needs an interactive GNOME Shell 50 session to confirm runtime behavior. Test all effects by minimizing and restoring an ordinary window, then disable the extension to check that GNOME's normal animation returns. Please report the GNOME version and any other extensions that modify the Overview or minimize animation when filing an issue.
+Translations live in `po/`. To add a language, copy `po/pt_BR.po`, translate it and add the language code to `po/LINGUAS`.
 
-## Credits and license
+## Credits
 
-Based on [Hide minimized](https://github.com/danigm/hide-minimized) by Daniel Garcia Moreno. The original implementation also filters Alt+Tab and window cyclers; this variant limits the change to the Overview and uses a separate extension UUID. The upstream project is licensed under GPL-3.0. This modified version is distributed under **GPL-3.0**; see [LICENSE](LICENSE).
+Based on [Hide minimized](https://github.com/danigm/hide-minimized) by Daniel Garcia Moreno.
+
+## License
+
+GPL-3.0-only

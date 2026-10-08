@@ -1,8 +1,12 @@
 {
-  "name": "Minimize Tidy",
-  "description": "Hide minimized windows from the Activities Overview and restore them from a menu in the top bar. Alt+Tab remains unchanged.",
   "uuid": "minimize-tidy@willdeschepper.github.io",
+  "name": "Minimize Tidy",
+  "description": "Keeps the Activities Overview tidy by hiding minimized windows, and lists them in a top bar menu so you can restore them in one click. Optional count badge, \"Restore all\", and custom minimize animations that can shrink windows into their dock icon. Alt+Tab and the dock keep working as usual.",
+  "shell-version": [
+    "50"
+  ],
   "url": "https://github.com/willdeschepper/minimize-tidy",
   "settings-schema": "org.gnome.shell.extensions.minimize-tidy",
-  "shell-version": ["50"]
+  "gettext-domain": "minimize-tidy@willdeschepper.github.io",
+  "version-name": "1.1"
 }
